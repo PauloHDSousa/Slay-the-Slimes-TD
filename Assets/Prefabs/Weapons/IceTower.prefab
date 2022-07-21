@@ -219,7 +219,8 @@ MonoBehaviour:
   range: 3
   turnSpeed: 10
   price: 500
-  fireRate: 0
+  upgradePrice: 600
+  sellPrice: 400
 --- !u!114 &-2505558131841593406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,6 +238,8 @@ MonoBehaviour:
   fireRate: 1
   useLaserShot: 1
   lineRenderer: {fileID: 750603497}
+  damageOverTime: 30
+  slowAmount: 0.5
 --- !u!120 &750603497
 LineRenderer:
   serializedVersion: 2

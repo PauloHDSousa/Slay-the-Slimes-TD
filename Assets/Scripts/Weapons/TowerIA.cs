@@ -5,12 +5,17 @@ public class TowerIA : MonoBehaviour
     [SerializeField] float range;
     [SerializeField] float turnSpeed = 10f;
     [SerializeField] int price;
+    [SerializeField] Sprite spriteImage;
+    public Sprite GetSpriteImage() { return spriteImage; }
 
+    [SerializeField] int upgradePrice;
+    public int GetUpgradePrice() { return upgradePrice; }
 
-    [SerializeField] float fireRate;
+    [SerializeField] int sellPrice;
+    public int GetSellPrice() { return sellPrice; }
+
 
     Transform target;
-    Quaternion startRotation = Quaternion.identity;
 
     TowerShoot towerShoot;
 
@@ -22,7 +27,6 @@ public class TowerIA : MonoBehaviour
     void Start()
     {
         towerShoot = GetComponent<TowerShoot>();
-        startRotation = transform.rotation;
         //Every half seconds try to get the closest target
         InvokeRepeating("UpdateTarget", 0f, .5f);
     }
@@ -51,12 +55,7 @@ public class TowerIA : MonoBehaviour
     void Update()
     {
         if (target == null)
-        {
-            //Return to the original position
-            //Vector3 goBackToRotation = Quaternion.Lerp(transform.rotation, startRotation, Time.deltaTime * turnSpeed).eulerAngles;
-            //transform.rotation = Quaternion.Euler(0f, goBackToRotation.y, 0f);
             return;
-        }
 
         //Rotate towards the closest enemy 
         //Don't rotate tower lasers

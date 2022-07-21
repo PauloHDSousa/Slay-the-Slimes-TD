@@ -22,8 +22,9 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+        var aimToEnemyAt = new Vector3(currentTarget.position.x, currentTarget.position.y + .5f, currentTarget.position.z);
 
-        Vector3 dir = currentTarget.position - transform.position;
+        Vector3 dir = aimToEnemyAt - transform.position;
         float distanceThisFrame = speed * Time.deltaTime;
 
         if (dir.magnitude <= distanceThisFrame)
@@ -49,15 +50,15 @@ public class Bullet : MonoBehaviour
             Damage(currentTarget);
         }
 
-            Destroy(currentTarget.gameObject);
+        Destroy(currentTarget.gameObject);
 
     }
 
     void Explode()
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
-        foreach(Collider collider in colliders)
-            if(collider.CompareTag("Enemy"))
+        foreach (Collider collider in colliders)
+            if (collider.CompareTag("Enemy"))
                 Damage(collider.transform);
     }
 

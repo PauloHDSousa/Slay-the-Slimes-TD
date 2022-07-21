@@ -158,7 +158,7 @@ Transform:
   - {fileID: 8887317080822288520}
   - {fileID: 3717550023105993587}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &913406305999723179
 Animator:
@@ -192,7 +192,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc620b6ce61f9ac4683cae2368354082, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
 --- !u!114 &440223887983846076
 MonoBehaviour:
   m_ObjectHideFlags: 0

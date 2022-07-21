@@ -21,7 +21,6 @@ public class TowerShoot : MonoBehaviour
     [SerializeField] float slowAmount = .5f;
 
 
-
     void Start()
     {
         towerIA = GetComponent<TowerIA>();
@@ -31,8 +30,10 @@ public class TowerShoot : MonoBehaviour
     {
         currentTarget = towerIA.GetCurrentTarget();
         //If there is no target avaliable, just return;
-        if (currentTarget == null) {
-            lineRenderer.enabled = false;
+        if (currentTarget == null)
+        {
+            if (lineRenderer != null)
+                lineRenderer.enabled = false;
             return;
         }
 
@@ -68,6 +69,12 @@ public class TowerShoot : MonoBehaviour
         lineRenderer.enabled = true;
         lineRenderer.SetPosition(0, firePoint.position);
         lineRenderer.SetPosition(1, currentTarget.position);
+    }
+
+    public void UpgradeTower()
+    {
+        fireRate += .5f;
+        slowAmount += .1f;
     }
 
     public bool IsLaserShot()

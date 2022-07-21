@@ -112,6 +112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.31229973, g: 0.5471698, b: 0.46995226, a: 0}
   notEnoughMoneyColor: {r: 0.7735849, g: 0.3247597, b: 0.32826614, a: 0}
+  upgradeSellColor: {r: 0.7644498, g: 0.77254903, b: 0.32549018, a: 0}
 --- !u!1 &304858755555587523
 GameObject:
   m_ObjectHideFlags: 0

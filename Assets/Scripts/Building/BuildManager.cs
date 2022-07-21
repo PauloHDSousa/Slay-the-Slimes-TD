@@ -1,5 +1,7 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class BuildManager : MonoBehaviour
 {
@@ -10,12 +12,27 @@ public class BuildManager : MonoBehaviour
     [SerializeField] string buildableTag;
 
     [Header("UI")]
-    [SerializeField] GameObject improveSellUI;
+    [Space(2)]
+    [SerializeField] GameObject upgradeOrSellUI;
+    [SerializeField] Image selectedWeaponUI;
+    [SerializeField] TextMeshProUGUI tmpUpgradePrice;
+    [SerializeField] TextMeshProUGUI tmpSellPrice;
+    [SerializeField] Material selectedWeaponMaterial;
+
+    [Header("VFX")]
+    [Space(2)]
+    [SerializeField] ParticleSystem onSellVFX;
 
     Camera mainCamera;
-    //Weapon data
+    //Weapon build data
     GameObject currentWeapon;
+    GameObject previewWeapon;
     int weaponPrice;
+    //Weapon upgrade Data
+    GameObject upgradeCurrentWeapon;
+    int sellPrice;
+    int upgradePrice;
+    TowerShoot currentTowerShot;
     //Curency
     CurrencyManager currencyManager;
 
@@ -37,13 +54,22 @@ public class BuildManager : MonoBehaviour
         mouseClickAction.Disable();
     }
 
+    private void Update()
+    {
+        if (currentWeapon == null)
+            return;
+
+        if (!currencyManager.CanBuy(upgradePrice))
+            return;
+    }
+
     private void Build(InputAction.CallbackContext ctx)
     {
-        //if (currentWeapon == null)
-        //    return;
+        if (currentWeapon == null)
+            return;
 
-        //if (!currencyManager.CanBuy(weaponPrice))
-        //    return;
+        if (!currencyManager.CanBuy(weaponPrice))
+            return;
 
         //Can only build in buildable area, this is important to deny build 2 towers at the same place
         Vector3 mousePos = Mouse.current.position.ReadValue();
@@ -56,31 +82,54 @@ public class BuildManager : MonoBehaviour
             currencyManager.BuyItem(weaponPrice);
 
             hit.collider.tag = "Builded";
-            Instantiate(currentWeapon,
+
+            var instantiatedWeapon = Instantiate(currentWeapon,
                 new Vector3(hit.collider.transform.position.x,
                             hit.collider.transform.position.y + 0.05f,
                             hit.collider.transform.position.z), currentWeapon.transform.rotation);
 
+            instantiatedWeapon.transform.parent = hit.collider.transform;
+            var vfx = Instantiate(onSellVFX, hit.collider.transform.position, Quaternion.identity);
+            Destroy(vfx, 1);
+
         }
-        else if (hit.collider.tag == "Builded")
+        else if (hit.collider != null && hit.collider.tag == "Builded")
         {
-
-            //improveSellUI.SetActive(true); 
             var uiPos = new Vector3(hit.collider.transform.position.x,
-                            hit.collider.transform.position.y + 1.3f,
-                            hit.collider.transform.position.z - 2f);
+                            hit.collider.transform.position.y + 1f,
+                            hit.collider.transform.position.z - 1.2f);
 
-            improveSellUI.transform.position = uiPos;
+            upgradeOrSellUI.transform.position = uiPos;
+            upgradeOrSellUI.SetActive(true);
+            hit.collider.tag = "ShowingUI";
 
+
+            var towerIA = hit.collider.GetComponentInChildren<TowerIA>();
+            currentTowerShot = hit.collider.GetComponentInChildren<TowerShoot>();
+            upgradeCurrentWeapon = towerIA.gameObject;
+
+            sellPrice = towerIA.GetSellPrice();
+            upgradePrice = towerIA.GetUpgradePrice();
+
+            tmpSellPrice.text = sellPrice.ToString();
+            tmpUpgradePrice.text = upgradePrice.ToString();
+        }
+        else if (hit.collider != null && hit.collider.tag == "ShowingUI")
+        {
+            upgradeOrSellUI.SetActive(false);
+            hit.collider.tag = "Builded";
         }
     }
 
     #region Weapons
 
-    //Check for price latter.
+    //Buy - Check for price latter.
     public void SetWeapon(GameObject _weapon)
     {
-        currentWeapon = _weapon;
+        if (currentWeapon == null)
+            currentWeapon = _weapon;
+        else if (currentWeapon == _weapon)
+            currentWeapon = null;
     }
 
     public void SetWeaponPrice(int price)
@@ -88,9 +137,38 @@ public class BuildManager : MonoBehaviour
         weaponPrice = price;
     }
 
+    public void SetPreviewWeapon(GameObject _previewWeapon)
+    {
+        if (previewWeapon == null)
+            previewWeapon = _previewWeapon;
+        else if (previewWeapon == _previewWeapon)
+            previewWeapon = null;
+    }
+
+    public GameObject GetWeaponPrefabPreview()
+    {
+        return previewWeapon;
+    }
     public int GetWeaponPrice()
     {
         return weaponPrice;
+    }
+
+    //Upgrade
+    public void SellWeapon()
+    {
+        Destroy(upgradeCurrentWeapon);
+        currencyManager.WonGold(sellPrice);
+        upgradeOrSellUI.SetActive(false);
+
+        var vfx = Instantiate(onSellVFX, upgradeCurrentWeapon.transform.position, Quaternion.identity);
+        Destroy(vfx, 1);
+
+    }
+    public void UpgradeWeapon()
+    {
+        currentTowerShot.UpgradeTower();
+        upgradeOrSellUI.SetActive(false);
     }
     #endregion
 }

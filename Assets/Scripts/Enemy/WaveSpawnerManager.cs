@@ -12,7 +12,7 @@ public class WaveSpawnerManager : MonoBehaviour
     [Header("Time Management")]
     [SerializeField] float timeBetweenWaves = 5.5f;
     [SerializeField] float timeBetweenEnemies = .8f;
-    
+
     [Space()]
     [Header("UI")]
     [SerializeField] TextMeshProUGUI tmpWaveCountDownTimer;
@@ -23,13 +23,19 @@ public class WaveSpawnerManager : MonoBehaviour
 
     private void Update()
     {
-        if (countDown <= 0)
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        if (enemies.Length == 0)
         {
-            StartCoroutine(SpawnWave());
-            countDown = timeBetweenWaves;
+            if (countDown <= 0)
+            {
+                StartCoroutine(SpawnWave());
+                countDown = timeBetweenWaves;
+            }
+            countDown -= Time.deltaTime;
+            tmpWaveCountDownTimer.text = Mathf.Round(countDown).ToString();
         }
-        countDown -= Time.deltaTime;
-        tmpWaveCountDownTimer.text =  Mathf.Round(countDown).ToString();
+        else
+            tmpWaveCountDownTimer.text = "";
     }
 
     IEnumerator SpawnWave()

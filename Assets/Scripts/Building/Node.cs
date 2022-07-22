@@ -17,6 +17,7 @@ public class Node : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
 
     string tagBuilded = "Builded";
     string tagShowingUI = "ShowingUI";
+    string tagAlreadyBuilded = "AlreadyBuilded";
     string tagBuildable = "Buildable";
 
     CurrencyManager currencyManager;

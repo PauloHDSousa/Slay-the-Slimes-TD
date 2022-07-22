@@ -36,6 +36,10 @@ public class BuildManager : MonoBehaviour
     //Curency
     CurrencyManager currencyManager;
 
+    //Tags
+    string tagBuilded = "Builded";
+    string tagShowingUI = "ShowingUI";
+
     private void Awake()
     {
         currencyManager = FindObjectOfType<CurrencyManager>();
@@ -65,12 +69,6 @@ public class BuildManager : MonoBehaviour
 
     private void Build(InputAction.CallbackContext ctx)
     {
-        if (currentWeapon == null)
-            return;
-
-        if (!currencyManager.CanBuy(weaponPrice))
-            return;
-
         //Can only build in buildable area, this is important to deny build 2 towers at the same place
         Vector3 mousePos = Mouse.current.position.ReadValue();
         mousePos.z = mainCamera.nearClipPlane;
@@ -78,10 +76,13 @@ public class BuildManager : MonoBehaviour
         Ray ray = mainCamera.ScreenPointToRay(mousePos);
         if (Physics.Raycast(ray: ray, hitInfo: out RaycastHit hit, range, layerMask) && hit.collider && hit.collider.CompareTag(buildableTag))
         {
+            if (currentWeapon == null || !currencyManager.CanBuy(weaponPrice))
+                return;
+
             //Buy weapon
             currencyManager.BuyItem(weaponPrice);
 
-            hit.collider.tag = "Builded";
+            hit.collider.tag = tagBuilded;
 
             var instantiatedWeapon = Instantiate(currentWeapon,
                 new Vector3(hit.collider.transform.position.x,
@@ -93,7 +94,7 @@ public class BuildManager : MonoBehaviour
             Destroy(vfx, 1);
 
         }
-        else if (hit.collider != null && hit.collider.tag == "Builded")
+        else if (hit.collider != null && hit.collider.tag == tagBuilded)
         {
             var uiPos = new Vector3(hit.collider.transform.position.x,
                             hit.collider.transform.position.y + 1f,
@@ -101,8 +102,7 @@ public class BuildManager : MonoBehaviour
 
             upgradeOrSellUI.transform.position = uiPos;
             upgradeOrSellUI.SetActive(true);
-            hit.collider.tag = "ShowingUI";
-
+            hit.collider.tag = tagShowingUI;
 
             var towerIA = hit.collider.GetComponentInChildren<TowerIA>();
             currentTowerShot = hit.collider.GetComponentInChildren<TowerShoot>();
@@ -114,10 +114,10 @@ public class BuildManager : MonoBehaviour
             tmpSellPrice.text = sellPrice.ToString();
             tmpUpgradePrice.text = upgradePrice.ToString();
         }
-        else if (hit.collider != null && hit.collider.tag == "ShowingUI")
+        else if (hit.collider != null && hit.collider.tag == tagShowingUI)
         {
             upgradeOrSellUI.SetActive(false);
-            hit.collider.tag = "Builded";
+            hit.collider.tag = tagBuilded;
         }
     }
 

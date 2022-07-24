@@ -47,4 +47,9 @@ public class CurrencyManager : MonoBehaviour
     {
         tmpCurrentPlayerGold.text = currentGold.ToString();
     }
+
+    public void UpdatePassiveGold(int _passiveGoldIncome)
+    {
+        passiveGoldIncome = _passiveGoldIncome;
+    }
 }

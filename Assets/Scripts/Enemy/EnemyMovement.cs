@@ -27,7 +27,7 @@ public class EnemyMovement : MonoBehaviour
         if (Vector3.Distance(transform.position, targetPoint.position) <= 0.2f)
             GoToNextPoint();
 
-        enemy.speed = enemy.startSpeed; 
+        enemy.speed = enemy.enemySpeed; 
     }
 
     void GoToNextPoint()

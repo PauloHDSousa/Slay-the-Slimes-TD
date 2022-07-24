@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
 
 public class Node : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
@@ -17,7 +14,6 @@ public class Node : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
 
     string tagBuilded = "Builded";
     string tagShowingUI = "ShowingUI";
-    string tagAlreadyBuilded = "AlreadyBuilded";
     string tagBuildable = "Buildable";
 
     CurrencyManager currencyManager;
@@ -31,18 +27,17 @@ public class Node : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
         defaultColor = _renderer.material.color;
     }
 
-
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log(gameObject.tag);
+
         if (gameObject.tag == tagBuilded || gameObject.tag == tagShowingUI)
         {
             _renderer.material.color = upgradeSellColor;
             return;
         }
 
-        currencyManager = FindObjectOfType<CurrencyManager>();
         buildManager = FindObjectOfType<BuildManager>();
+        currencyManager = FindObjectOfType<CurrencyManager>();
 
 
         if (!currencyManager.CanBuy(buildManager.GetWeaponPrice()))
@@ -62,6 +57,8 @@ public class Node : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
             new Vector3(_position.transform.position.x,
                         _position.transform.position.y + 0.05f,
                         _position.transform.position.z), prefabPreviewWeapon.transform.rotation);
+
+        buildManager.SetCurrentNode(this);
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -73,11 +70,16 @@ public class Node : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
         _renderer.material.color = defaultColor;
         if (gameObject.tag == tagBuilded)
             return;
-        //gameObject.tag = tagUnBuilded;
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        DestroyPreview();
+    }
+
+    public void DestroyPreview()
+    {
         Destroy(previewWeapon);
+        _renderer.material.color = defaultColor;
     }
 }

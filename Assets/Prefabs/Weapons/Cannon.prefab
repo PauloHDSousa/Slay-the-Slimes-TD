@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 6480760028168381636}
   m_Layer: 0
   m_Name: Cannon
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134,9 +134,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 3
   turnSpeed: 10
-  price: 300
-  upgradePrice: 300
+  price: 400
+  spriteImage: {fileID: 0}
+  weaponSize: 1.5
+  upgradePrice: 400
   sellPrice: 250
+  CurrentWeaponLevel: 1
 --- !u!114 &4738773721218037562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,12 +153,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 7174378741041106835, guid: 9550ffa9fac8f2f479773f8e64234ca2, type: 3}
+  poisonBulletPrefab: {fileID: 7174378741041106835, guid: 348b8a8e38efd6643a7ee45c2ca2cd06, type: 3}
   firePoint: {fileID: 4476537945699756966}
-  fireRate: 1
+  fireRate: 0.4
+  bulletDamage: 30
   useLaserShot: 0
   lineRenderer: {fileID: 0}
   damageOverTime: 30
   slowAmount: 0.5
+  currentBullet: {fileID: 0}
 --- !u!33 &9085097047926116366
 MeshFilter:
   m_ObjectHideFlags: 0

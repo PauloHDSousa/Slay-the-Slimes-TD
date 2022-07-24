@@ -1,63 +1,74 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Drawing;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [HideInInspector]
+    public float speed;
 
-	public float startSpeed = 10f;
+    public GameObject deathEffect;
 
-	[HideInInspector]
-	public float speed;
+    [Header("Health Bar")]
+    [SerializeField] Image healthBar;
+    [SerializeField] float enemyHealth = 100;
 
-	public float startHealth = 100;
-	private float health;
+    [Header("Attr")]
+    [SerializeField] public float enemySpeed = 3f;
+    [SerializeField] int goldWorth = 15;
+    [SerializeField] public float poisonDamage = 20f;
 
-	public int goldWorth = 50;
+    bool isDead = false;
+    float health;
 
-	public GameObject deathEffect;
+    CurrencyManager currencyManager;
 
-	[Header("Unity Stuff")]
-	public Image healthBar;
+    void Start()
+    {
+        currencyManager = FindObjectOfType<CurrencyManager>();
+        speed = enemySpeed;
+        health = enemyHealth;
+    }
 
-	private bool isDead = false;
+    public void TakeDamage(float amount, bool takePoisonDamage = false)
+    {
+        health -= amount;
+        healthBar.fillAmount = health / enemyHealth;
 
-	void Start()
-	{
-		speed = startSpeed;
-		health = startHealth;
-	}
+        if (health <= 0 && !isDead)
+            Die();
 
-	public void TakeDamage(float amount)
-	{
-		health -= amount;
+        if(takePoisonDamage)
+            InvokeRepeating("TakePoisonDamage", 0f, .5f);
 
-		//healthBar.fillAmount = health / startHealth;
+    }
 
-		if (health <= 0 && !isDead)
-		{
-			Die();
-		}
-	}
+    public void TakePoisonDamage()
+    {
+        float amount = poisonDamage;
+        health -= amount;
+        healthBar.fillAmount = health / enemyHealth;
 
-	public void Slow(float pct)
-	{
-		speed = startSpeed * (1f - pct);
-	}
+        if (health <= 0 && !isDead)
+            Die();
+    }
 
-	void Die()
-	{
-		isDead = true;
+    public void Slow(float pct)
+    {
+        speed = enemySpeed * (1f - pct);
+    }
 
-		//PlayerStats.Money += worth;
+    void Die()
+    {
+        isDead = true;
 
-		//GameObject effect = (GameObject)Instantiate(deathEffect, transform.position, Quaternion.identity);
-		//Destroy(effect, 5f);
+        currencyManager.WonGold(goldWorth);
 
-		//WaveSpawner.EnemiesAlive--;
+        //GameObject effect = (GameObject)Instantiate(deathEffect, transform.position, Quaternion.identity);
+        //Destroy(effect, 1f);
 
-		Destroy(gameObject);
-	}
+        Destroy(gameObject);
+    }
 
 }

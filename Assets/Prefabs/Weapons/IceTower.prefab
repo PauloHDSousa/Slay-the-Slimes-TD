@@ -128,10 +128,11 @@ GameObject:
   - component: {fileID: 5880395061674599612}
   - component: {fileID: 1031723463720897659}
   - component: {fileID: -2505558131841593406}
+  - component: {fileID: 8856948032529903265}
   - component: {fileID: 750603497}
   m_Layer: 0
   m_Name: IceTower
-  m_TagString: Untagged
+  m_TagString: Laser
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -219,8 +220,11 @@ MonoBehaviour:
   range: 3
   turnSpeed: 10
   price: 500
+  spriteImage: {fileID: 0}
+  weaponSize: 2
   upgradePrice: 600
   sellPrice: 400
+  CurrentWeaponLevel: 1
 --- !u!114 &-2505558131841593406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,12 +238,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 0}
+  poisonBulletPrefab: {fileID: 0}
   firePoint: {fileID: 1937755051}
   fireRate: 1
+  bulletDamage: 25
   useLaserShot: 1
   lineRenderer: {fileID: 750603497}
   damageOverTime: 30
   slowAmount: 0.5
+  currentBullet: {fileID: 0}
+--- !u!114 &8856948032529903265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5376066876000224617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a18c197bf3c21840a5ae7a3c3a332ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particlesVFX: {fileID: 2829807354593528418, guid: ef3f1bd11d2c71d4ea384801948c03f7, type: 3}
+  onCreateSFX: {fileID: 0}
+  onSellSFX: {fileID: 0}
 --- !u!120 &750603497
 LineRenderer:
   serializedVersion: 2

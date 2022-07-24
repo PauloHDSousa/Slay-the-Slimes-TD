@@ -7,11 +7,13 @@ public class LifeManager : MonoBehaviour
 {
     [Header("Configuration")]
     [SerializeField] List<GameObject> lifes;
-
+    [SerializeField] ParticleSystem onHitNexusVFX;
+    
     [Header("GameOver")]
     [SerializeField] GameObject gameOverPanel;
     [SerializeField] TextMeshProUGUI tmpHeader;
     [SerializeField] AudioClip gameOverSound;
+ 
 
     AudioSource audioSource;
     private void Start()
@@ -29,7 +31,10 @@ public class LifeManager : MonoBehaviour
         lifes.Remove(currentLife);
         Destroy(other.gameObject);
 
-        if(lifes.Count == 0)
+        var vfx = Instantiate(onHitNexusVFX, other.transform.position, Quaternion.identity);
+        Destroy(vfx, 1);
+
+        if (RemainingLifes() == 0)
         {
             tmpHeader.text = "Game Over";
             audioSource.PlayOneShot(gameOverSound);
@@ -41,5 +46,10 @@ public class LifeManager : MonoBehaviour
     void PauseGame()
     {
         Time.timeScale = 0;
+    }
+
+    public int RemainingLifes()
+    {
+        return lifes.Count;
     }
 }

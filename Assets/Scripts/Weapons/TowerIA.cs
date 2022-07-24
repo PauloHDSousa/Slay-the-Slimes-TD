@@ -6,6 +6,7 @@ public class TowerIA : MonoBehaviour
     [SerializeField] float turnSpeed = 10f;
     [SerializeField] int price;
     [SerializeField] Sprite spriteImage;
+    [SerializeField] float weaponSize;
     public Sprite GetSpriteImage() { return spriteImage; }
 
     [SerializeField] int upgradePrice;
@@ -14,6 +15,8 @@ public class TowerIA : MonoBehaviour
     [SerializeField] int sellPrice;
     public int GetSellPrice() { return sellPrice; }
 
+
+    public int CurrentWeaponLevel = 1;
 
     Transform target;
 
@@ -73,5 +76,10 @@ public class TowerIA : MonoBehaviour
         // Draw a yellow sphere at the transform's position
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, range);
+    }
+
+    public float GetWeaponSize()
+    {
+        return weaponSize;
     }
 }

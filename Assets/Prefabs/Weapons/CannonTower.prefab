@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3278631645065408190}
   - component: {fileID: 1886957157370650907}
   - component: {fileID: 4452695265167906257}
+  - component: {fileID: 8460189427466016480}
   m_Layer: 0
   m_Name: CannonTower
   m_TagString: Untagged
@@ -86,6 +87,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8460189427466016480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2795568445910561796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a18c197bf3c21840a5ae7a3c3a332ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particlesVFX: {fileID: 2829807354593528418, guid: acdae61bbf85ee542ab7cc60d9e18ebf, type: 3}
+  onCreateSFX: {fileID: 0}
+  onSellSFX: {fileID: 0}
 --- !u!1001 &3029430928785082646
 PrefabInstance:
   m_ObjectHideFlags: 0

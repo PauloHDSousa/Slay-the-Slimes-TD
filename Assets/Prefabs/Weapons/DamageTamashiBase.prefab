@@ -2056,7 +2056,6 @@ GameObject:
   - component: {fileID: 2781157610414067403}
   - component: {fileID: 8104373524189615281}
   - component: {fileID: 5445108112312718228}
-  - component: {fileID: 2547975752488011590}
   m_Layer: 0
   m_Name: DamageTamashi
   m_TagString: TamashiDamage
@@ -2129,21 +2128,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: Damage
---- !u!114 &2547975752488011590
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3302115649432228977}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a18c197bf3c21840a5ae7a3c3a332ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  particlesVFX: {fileID: 2829807354593528418, guid: c6ab86d6951ab5f4397c375f46cb0844, type: 3}
-  onCreateSFX: {fileID: 0}
-  onSellSFX: {fileID: 0}
 --- !u!1 &3351177316406892079
 GameObject:
   m_ObjectHideFlags: 0
@@ -7207,6 +7191,8 @@ MonoBehaviour:
   particlesVFX: {fileID: 2829807354593528418, guid: c6ab86d6951ab5f4397c375f46cb0844, type: 3}
   onCreateSFX: {fileID: 0}
   onSellSFX: {fileID: 0}
+  isPoisonTamashi: 0
+  isDamageTamashi: 1
 --- !u!1 &8092174234449988717
 GameObject:
   m_ObjectHideFlags: 0

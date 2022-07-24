@@ -5,6 +5,8 @@ public class WeaponInfo : MonoBehaviour
     [SerializeField] ParticleSystem particlesVFX;
     [SerializeField] AudioClip onCreateSFX;
     [SerializeField] AudioClip onSellSFX;
+    [SerializeField] bool isPoisonTamashi;
+    [SerializeField] bool isDamageTamashi;
     public ParticleSystem GetParticlesVFX()
     {
         return particlesVFX;
@@ -18,5 +20,17 @@ public class WeaponInfo : MonoBehaviour
     public AudioClip GetOnSellSFX()
     {
         return onSellSFX;
+    }
+
+    //Tamashi Controller
+
+    public bool GetIsPoisonTamashi()
+    {
+        return isPoisonTamashi;
+    }
+
+    public bool GetIsDamageTamashi()
+    {
+        return isDamageTamashi;
     }
 }

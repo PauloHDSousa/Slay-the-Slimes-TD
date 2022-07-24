@@ -51,6 +51,9 @@ public class BuildManager : MonoBehaviour
 
     //SFX
     AudioSource audioSource;
+    //Tamashis
+    public bool damageTamashiCreated = false;
+    public bool poisonTamashiCreated = false;
 
     private void Awake()
     {
@@ -110,6 +113,24 @@ public class BuildManager : MonoBehaviour
             instantiatedWeapon.transform.parent = hit.collider.transform;
 
             weaponInfo = instantiatedWeapon.GetComponent<WeaponInfo>();
+
+            if (weaponInfo.GetIsDamageTamashi())
+            {
+                damageTamashiCreated = true;
+                currentWeapon = null;
+                previewWeapon = null;
+                weaponPrice = 0;
+                currentNode.DestroyPreview();
+              
+            }
+            else if (weaponInfo.GetIsPoisonTamashi())
+            {
+                poisonTamashiCreated = true;
+                currentWeapon = null;
+                previewWeapon = null;
+                weaponPrice = 0;
+                currentNode.DestroyPreview();
+            }
 
             Instantiate(weaponInfo.GetParticlesVFX(), hit.collider.transform.position, Quaternion.identity);
         }

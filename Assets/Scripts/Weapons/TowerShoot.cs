@@ -19,8 +19,8 @@ public class TowerShoot : MonoBehaviour
     [Header("Laser")]
     [SerializeField] bool useLaserShot = false;
     [SerializeField] LineRenderer lineRenderer;
-    [SerializeField] int damageOverTime = 30;
-    [SerializeField] float slowAmount = .5f;
+    [SerializeField] int damageOverTime = 25;
+    [SerializeField] float slowAmount = .3f;
 
 
     public GameObject currentBullet;
@@ -29,9 +29,6 @@ public class TowerShoot : MonoBehaviour
     //PowerUp Tamashi
     string tagTamashiDamage = "TamashiDamage";
     string tagTamashiPoison = "TamashiPoison";
-
-    //Node
-    string tagBuildable = "Buildable";
 
     void Start()
     {
@@ -111,6 +108,11 @@ public class TowerShoot : MonoBehaviour
         fireRate += .5f;
         slowAmount += .1f;
         bulletDamage += (bulletDamage / 2);
+    }
+
+    public void UpgradeTowerWIthPoisonTamashi()
+    {
+        currentBullet = poisonBulletPrefab;
     }
 
     #endregion

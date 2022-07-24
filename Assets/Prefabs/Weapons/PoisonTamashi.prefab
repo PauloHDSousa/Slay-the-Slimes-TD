@@ -572,6 +572,7 @@ GameObject:
   - component: {fileID: 3279583205474703609}
   - component: {fileID: 749740234240486451}
   - component: {fileID: -6788361029443206484}
+  - component: {fileID: 8607830925925801550}
   m_Layer: 0
   m_Name: PoisonTamashi
   m_TagString: Untagged
@@ -662,6 +663,21 @@ MonoBehaviour:
   particlesVFX: {fileID: 2829807354593528418, guid: ac60764f4f25e504499eee6c81e1900f, type: 3}
   onCreateSFX: {fileID: 0}
   onSellSFX: {fileID: 0}
+  isPoisonTamashi: 1
+  isDamageTamashi: 0
+--- !u!114 &8607830925925801550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254077353782889958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a06118fefef84d4297301a646b78cf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: Poison
 --- !u!1 &1477297451181276406
 GameObject:
   m_ObjectHideFlags: 0
@@ -5846,7 +5862,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6345208093794042179}
   - component: {fileID: 1075966617562307385}
-  - component: {fileID: 6594972632850001373}
   m_Layer: 0
   m_Name: PoisonTamashi
   m_TagString: TamashiPoison
@@ -5907,21 +5922,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &6594972632850001373
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6000313713368194041}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a18c197bf3c21840a5ae7a3c3a332ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  particlesVFX: {fileID: 2829807354593528418, guid: ac60764f4f25e504499eee6c81e1900f, type: 3}
-  onCreateSFX: {fileID: 0}
-  onSellSFX: {fileID: 0}
 --- !u!1 &6066509138942144919
 GameObject:
   m_ObjectHideFlags: 0

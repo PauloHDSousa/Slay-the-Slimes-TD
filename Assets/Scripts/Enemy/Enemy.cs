@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
@@ -8,7 +6,11 @@ public class Enemy : MonoBehaviour
     [HideInInspector]
     public float speed;
 
-    public GameObject deathEffect;
+
+    [Header("VFX")]
+    [SerializeField] ParticleSystem deathEffect;
+    [SerializeField] ParticleSystem damageEffect;
+    [SerializeField] GameObject Body;
 
     [Header("Health Bar")]
     [SerializeField] Image healthBar;
@@ -19,13 +21,18 @@ public class Enemy : MonoBehaviour
     [SerializeField] int goldWorth = 15;
     [SerializeField] public float poisonDamage = 20f;
 
+
+    [Header("Sound")]
+    [SerializeField] AudioClip enemyDeathSFX;
+
     bool isDead = false;
     float health;
 
     CurrencyManager currencyManager;
-
+    AudioSource audioSource;
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         currencyManager = FindObjectOfType<CurrencyManager>();
         speed = enemySpeed;
         health = enemyHealth;
@@ -38,8 +45,10 @@ public class Enemy : MonoBehaviour
 
         if (health <= 0 && !isDead)
             Die();
+        else
+            Instantiate(damageEffect, transform.position, Quaternion.identity);
 
-        if(takePoisonDamage)
+        if (takePoisonDamage)
             InvokeRepeating("TakePoisonDamage", 0f, .5f);
 
     }
@@ -62,13 +71,15 @@ public class Enemy : MonoBehaviour
     void Die()
     {
         isDead = true;
-
         currencyManager.WonGold(goldWorth);
-
-        //GameObject effect = (GameObject)Instantiate(deathEffect, transform.position, Quaternion.identity);
-        //Destroy(effect, 1f);
-
-        Destroy(gameObject);
+        audioSource.PlayOneShot(enemyDeathSFX);
+        Instantiate(deathEffect, transform.position, Quaternion.identity);
+        Body.SetActive(false);
+        Destroy(gameObject, enemyDeathSFX.length);
     }
 
+    public bool IsDead()
+    {
+        return isDead;
+    }
 }

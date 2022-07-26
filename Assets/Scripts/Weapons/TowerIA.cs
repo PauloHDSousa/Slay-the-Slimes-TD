@@ -13,7 +13,7 @@ public class TowerIA : MonoBehaviour
     public int GetUpgradePrice() { return upgradePrice; }
 
     [SerializeField] int sellPrice;
-    public int GetSellPrice() { return sellPrice; }
+    public int GetSellPrice() { return sellPrice * CurrentWeaponLevel; }
 
 
     public int CurrentWeaponLevel = 1;
@@ -51,7 +51,17 @@ public class TowerIA : MonoBehaviour
         }
 
         if (nearestEnemy != null && shortestDistance <= range)
+        {
+            var enemy = nearestEnemy.GetComponent<Enemy>();
+            if (enemy.IsDead())
+            {
+                target = null;
+                return;
+            }
+
             target = nearestEnemy.transform;
+
+        }
         else
             target = null;
     }

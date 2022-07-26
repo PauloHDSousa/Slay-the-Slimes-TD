@@ -367,7 +367,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0ff03b36db975a04ca0231ecdcd434ec, type: 2}
+  - {fileID: 2100000, guid: 197b6879abc18384bbbffbe579763bde, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -485,7 +485,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  onHitNexusVFX: {fileID: 2252204063399148903, guid: d367b8a3ddab0ec4ab6d6c7e93580c31, type: 3}
+  onHitNexusVFX: {fileID: 8277295881374274102, guid: 2b81b32534b18d842b3edb7c575a8777, type: 3}
+  onHitNexusSFX: {fileID: 8300000, guid: 377da84aadca0ff4493826c90b977d34, type: 3}
   gameOverPanel: {fileID: 0}
   tmpHeader: {fileID: 0}
   gameOverSound: {fileID: 8300000, guid: 98c32e4e65c6f844b8c081021fd3c729, type: 3}

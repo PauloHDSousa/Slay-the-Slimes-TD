@@ -5,12 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class MenuActionsManager : MonoBehaviour
 {
-    [Space(10)]
+    [Space(1)]
     [Header("SFX")]
     [SerializeField]
-    AudioClip onHoverSound;
-    [SerializeField]
-    AudioClip onClickSound;
+    AudioClip OnSceneLoad;
+
+
+    [Space(2)]
+    [Header("Options")]
+    [SerializeField] GameObject optiosnPanel;
+    [SerializeField] GameObject mainButtonsPanel;
+
 
     AudioSource audioSource;
 
@@ -33,15 +38,34 @@ public class MenuActionsManager : MonoBehaviour
         LoadScene("Menu");
     }
 
+    public void ShowOptions()
+    {
+
+        audioSource.PlayOneShot(OnSceneLoad);
+        optiosnPanel.SetActive(true);
+        mainButtonsPanel.SetActive(false);
+    }
+
+    public void ShowMenu()
+    {
+
+        audioSource.PlayOneShot(OnSceneLoad);
+        optiosnPanel.SetActive(false);
+        mainButtonsPanel.SetActive(true);
+    }
+
+    public void Exit()
+    {
+        audioSource.PlayOneShot(OnSceneLoad);
+        Application.Quit();
+    }
+
     void LoadScene(string scene)
     {
         Time.timeScale = 1f;
-        audioSource.PlayOneShot(onClickSound);
+        audioSource.PlayOneShot(OnSceneLoad);
         SceneManager.LoadScene(scene);
     }
 
-    public void OnHoverSound()
-    {
-        audioSource.PlayOneShot(onHoverSound);
-    }
+    
 }

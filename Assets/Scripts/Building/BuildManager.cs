@@ -27,6 +27,13 @@ public class BuildManager : MonoBehaviour
     [Header("SFX")]
     [Space(4)]
     [SerializeField] AudioClip cantUpgradeSFX;
+    [SerializeField] AudioClip onSellSFX;
+    [SerializeField] AudioClip onUpgradeSFX;
+    [SerializeField] AudioClip buildStartSFX;
+    [SerializeField] AudioClip buildEndSFX;
+    [SerializeField] AudioClip poisonBuildEndSFX;
+    [SerializeField] AudioClip damageBuildEndSFX;
+
 
     Camera mainCamera;
     //Weapon build data
@@ -54,6 +61,8 @@ public class BuildManager : MonoBehaviour
     //Tamashis
     public bool damageTamashiCreated = false;
     public bool poisonTamashiCreated = false;
+
+    bool hoveringUI  = false;
 
     private void Awake()
     {
@@ -86,6 +95,9 @@ public class BuildManager : MonoBehaviour
 
     private void Build(InputAction.CallbackContext ctx)
     {
+        if(hoveringUI)
+            return;
+
         //Can only build in buildable area, this is important to deny build 2 towers at the same place
         Vector3 mousePos = Mouse.current.position.ReadValue();
         mousePos.z = mainCamera.nearClipPlane;
@@ -121,7 +133,7 @@ public class BuildManager : MonoBehaviour
                 previewWeapon = null;
                 weaponPrice = 0;
                 currentNode.DestroyPreview();
-              
+
             }
             else if (weaponInfo.GetIsPoisonTamashi())
             {
@@ -131,6 +143,16 @@ public class BuildManager : MonoBehaviour
                 weaponPrice = 0;
                 currentNode.DestroyPreview();
             }
+            if (weaponInfo.GetIsPoisonTamashi())
+            {
+                audioSource.PlayOneShot(poisonBuildEndSFX);
+            }
+            else if (weaponInfo.GetIsDamageTamashi())
+            {
+                audioSource.PlayOneShot(damageBuildEndSFX);
+            }
+            else
+                audioSource.PlayOneShot(buildEndSFX);
 
             Instantiate(weaponInfo.GetParticlesVFX(), hit.collider.transform.position, Quaternion.identity);
         }
@@ -150,15 +172,19 @@ public class BuildManager : MonoBehaviour
 
             currentTowerShot = hit.collider.GetComponentInChildren<TowerShoot>();
             upgradeCurrentWeapon = currentTowerIA.gameObject;
-
+            
+            upgradeButton.SetActive(true);
+          
             if (currentTowerIA.CurrentWeaponLevel == 3)
             {
                 upgradeButton.SetActive(false);
                 upgradeOrSellWeaponLevel.text = $"Max Level";
                 upgradeOrSellWeaponLevel.fontSize = 32;
             }
-            else
+            else { 
                 upgradeOrSellWeaponLevel.text = $"Level {currentTowerIA.CurrentWeaponLevel}";
+                upgradeOrSellWeaponLevel.fontSize = 22;
+            }
 
             sellPrice = currentTowerIA.GetSellPrice();
             upgradePrice = currentTowerIA.GetUpgradePrice();
@@ -180,7 +206,10 @@ public class BuildManager : MonoBehaviour
     public void SetWeapon(GameObject _weapon)
     {
         if (currentWeapon == null || currentWeapon != _weapon)
+        {
             currentWeapon = _weapon;
+            audioSource.PlayOneShot(buildStartSFX);
+        }
     }
 
     public void SetWeaponPrice(int price)
@@ -206,25 +235,42 @@ public class BuildManager : MonoBehaviour
         return weaponPrice;
     }
 
-    //Upgrade
+    //Upgrade and Sell
+
+    public void HoverUIButtons()
+    {
+        hoveringUI = true;
+    }
+
+    public void ExitUIButtons()
+    {
+        hoveringUI = false;
+    }
+
+
     public void SellWeapon()
     {
+        hoveringUI = false;
         Destroy(upgradeCurrentWeapon);
         currencyManager.WonGold(sellPrice);
         upgradeOrSellUI.SetActive(false);
         upgradeNode.tag = buildableTag;
 
+        audioSource.PlayOneShot(onSellSFX);
         Instantiate(weaponInfo.GetParticlesVFX(), upgradeCurrentWeapon.transform.position, Quaternion.identity);
     }
 
     public void UpgradeWeapon()
     {
+        hoveringUI = false;
         if (upgradePrice != 0 && currentTowerIA != null && !currencyManager.CanBuy(upgradePrice))
         {
             audioSource.PlayOneShot(cantUpgradeSFX);
             return;
         }
 
+        upgradeNode.tag = tagBuilded;
+        audioSource.PlayOneShot(onUpgradeSFX);
         currencyManager.BuyItem(upgradePrice);
         currentTowerShot.UpgradeTower();
         upgradeOrSellUI.SetActive(false);

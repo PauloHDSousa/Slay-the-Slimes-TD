@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 7267522204621552911}
   - component: {fileID: -8453053051756717268}
   - component: {fileID: -4556477867521223785}
+  - component: {fileID: -6673569810002861256}
   m_Layer: 0
   m_Name: blaster
   m_TagString: Weapon
@@ -81,7 +82,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d71958d86926c4345a5ef16a72eecab5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 2.4
+  range: 2.8
   turnSpeed: 8
   price: 250
   spriteImage: {fileID: 21300000, guid: 3540426a9e55d724fbfc03d050cb6841, type: 3}
@@ -105,11 +106,13 @@ MonoBehaviour:
   poisonBulletPrefab: {fileID: 7174378741041106835, guid: af2c400c2eea1fa42b95e3496edb7a63, type: 3}
   firePoint: {fileID: 2761968783026047445}
   fireRate: 0.8
-  bulletDamage: 50
+  bulletDamage: 40
+  shootSFX: {fileID: 8300000, guid: 11da44511c7f894438aec2c5420e19b8, type: 3}
   useLaserShot: 0
   lineRenderer: {fileID: 0}
   damageOverTime: 30
   slowAmount: 0.5
+  laserSFX: {fileID: 0}
   currentBullet: {fileID: 0}
 --- !u!33 &4845762944046975429
 MeshFilter:
@@ -191,3 +194,101 @@ MonoBehaviour:
   particlesVFX: {fileID: 2829807354593528418, guid: b683e79bb0a6a834ba4d3fb72231248b, type: 3}
   onCreateSFX: {fileID: 0}
   onSellSFX: {fileID: 0}
+  isPoisonTamashi: 0
+  isDamageTamashi: 0
+--- !u!82 &-6673569810002861256
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9213116344782068954}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 220
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

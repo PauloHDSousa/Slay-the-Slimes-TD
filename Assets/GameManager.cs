@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] AudioClip onHover;
     [SerializeField] AudioClip OnSceneLoad;
     [SerializeField] int onHoverFontSize;
+    [SerializeField] RectTransform fader;
 
     float defaultSize;
     AudioSource audioSource;
@@ -14,6 +15,12 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
+
+        fader.gameObject.SetActive(true);
+        LeanTween.scale(fader, new Vector3(1, 1, 1), 0);
+        LeanTween.scale(fader, Vector3.zero, 0.5f).setEase(LeanTweenType.easeInOutQuad).setOnComplete(() => {
+            fader.gameObject.SetActive(false);
+        });
     }
 
     public void OpenLink(string link)
@@ -39,30 +46,89 @@ public class GameManager : MonoBehaviour
     }
 
     #region Scenes
+
+    public void LoadMapSelector()
+    {
+        LoadScene("MapSelector");
+    }
     public void LoadMenu()
     {
-        Time.timeScale = 1f;
         LoadScene("Menu");
+    }
+    public void LoadTutorial()
+    {
+        LoadScene("Tutorial");
     }
 
     public void LoadCredits()
     {
-        Time.timeScale = 1f;
+
         LoadScene("Credits");
     }
 
-    void LoadScene(string _scene)
+    public void Restart()
     {
-        scene = _scene;
-        audioSource.PlayOneShot(OnSceneLoad);
-        Invoke("Load", 0.5f);
-        
+        LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public void Load()
+    public void LoadMap1()
     {
-        SceneManager.LoadScene(scene);
+        LoadScene("Map-1");
+    }
 
+    public void LoadMap2()
+    {
+        LoadScene("Map-2");
+    }
+
+    public void LoadMap3()
+    {
+        LoadScene("Map-3");
+    }
+
+    public void LoadMap4()
+    {
+        LoadScene("Map-4");
+    }
+
+    public void LoadMap5()
+    {
+        LoadScene("Map-5");
+    }
+
+    public void LoadMap6()
+    {
+        LoadScene("Map-6");
+    }
+
+    public void LoadMap7()
+    {
+        LoadScene("Map-7");
+    }
+
+    public void LoadMap8()
+    {
+        LoadScene("Map-8");
+    }
+
+    public void LoadMap9()
+    {
+        LoadScene("Map-9");
+    }
+
+
+    void LoadScene(string _scene)
+    {
+       
+        scene = _scene;
+        audioSource.PlayOneShot(OnSceneLoad);
+
+        fader.gameObject.SetActive(true);
+        LeanTween.scale(fader, Vector3.zero, 0f);
+        Time.timeScale = 1;
+        LeanTween.scale(fader, new Vector3(1, 1, 1), 0.5f).setEase(LeanTweenType.easeInOutQuad).setOnComplete(() => {
+            SceneManager.LoadScene(scene);
+        });
     }
     #endregion
 

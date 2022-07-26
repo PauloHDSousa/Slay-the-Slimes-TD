@@ -11,4 +11,34 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Credits.unity
     guid: fee57d1d48a3fc6448f4438216135079
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: 6e0ab9afcabcb624e83d4afbb3481158
+  - enabled: 1
+    path: Assets/Scenes/MapSelector.unity
+    guid: 6d3342fe8882a22468cc047b79733a8b
+  - enabled: 1
+    path: Assets/Scenes/Map-1.unity
+    guid: 106d8239105617b41894a64e96053570
+  - enabled: 1
+    path: Assets/Scenes/Map-2.unity
+    guid: f5ed2b2bd4ef5a8469d3e67cbcac94f2
+  - enabled: 1
+    path: Assets/Scenes/Map-3.unity
+    guid: df3ad40c656f37645bec609cf2949d8f
+  - enabled: 1
+    path: Assets/Scenes/Map-4.unity
+    guid: 56791e9cfd5ce9143ae7bdee8d329cc0
+  - enabled: 1
+    path: Assets/Scenes/Map-5.unity
+    guid: c191154d3c7e8af4a9979bdb76cf80df
+  - enabled: 1
+    path: Assets/Scenes/Map-6.unity
+    guid: ca482aea97ce90841a8ded8d1aeaa138
+  - enabled: 1
+    path: Assets/Scenes/Map-7.unity
+    guid: 6d9ab1db841aa93469b0218425d1625b
+  - enabled: 1
+    path: Assets/Scenes/Map-8.unity
+    guid: 130299eddc600a94297d10f6f1223ecf
   m_configObjects: {}

@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1248707043340366683
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1248707043340366693}
+  - component: {fileID: 1248707043340366692}
+  m_Layer: 0
+  m_Name: --- WaveSpawnerManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1248707043340366693
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248707043340366683}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -5.411135, y: -1.3265975, z: -3.460106}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1248707043340366692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248707043340366683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1648833de45c892429a235a63281bfa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level1_enemyPrefabs:
+  - {fileID: 913406305999723180, guid: 8e83c692a7bddfb47a1a83256f8f5d5b, type: 3}
+  level2_enemyPrefabs:
+  - {fileID: 913406305999723180, guid: 716205d1d2432c94693294ad6b2eea47, type: 3}
+  level3_enemyPrefabs:
+  - {fileID: 913406305999723180, guid: 1d4665744f1e20943a60087cecde62a1, type: 3}
+  boss_enemyPrefabs: {fileID: 913406305999723180, guid: 1046bd6eb6f5d744cb7d1d3b6099b2b6, type: 3}
+  spawPoint: {fileID: 0}
+  timeBetweenWaves: 3.5
+  timeBetweenEnemies: 0.8
+  tmpWaveCountDownTimer: {fileID: 0}
+  tmpWaveMessageAnim: {fileID: 0}
+  tmpWaveMessage: {fileID: 0}
+  mapFinishedModal: {fileID: 0}
+  stars_3: {fileID: 0}
+  stars_2: {fileID: 0}
+  stars_1: {fileID: 0}
+  maxWaves: 6
+  currentMap: 1
+  allWavesSumoned: 0

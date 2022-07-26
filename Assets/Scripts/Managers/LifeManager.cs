@@ -8,12 +8,12 @@ public class LifeManager : MonoBehaviour
     [Header("Configuration")]
     [SerializeField] List<GameObject> lifes;
     [SerializeField] ParticleSystem onHitNexusVFX;
-    
+    [SerializeField] AudioClip onHitNexusSFX;
     [Header("GameOver")]
     [SerializeField] GameObject gameOverPanel;
     [SerializeField] TextMeshProUGUI tmpHeader;
     [SerializeField] AudioClip gameOverSound;
- 
+
 
     AudioSource audioSource;
     private void Start()
@@ -26,13 +26,17 @@ public class LifeManager : MonoBehaviour
         if (!other.gameObject.CompareTag("Enemy"))
             return;
 
+        var enemy = other.gameObject.GetComponent<Enemy>();
+        if (enemy.IsDead())
+            return;
+
         var currentLife = lifes.LastOrDefault();
         currentLife.SetActive(false);
         lifes.Remove(currentLife);
         Destroy(other.gameObject);
 
-        var vfx = Instantiate(onHitNexusVFX, other.transform.position, Quaternion.identity);
-        Destroy(vfx, 1);
+
+        Instantiate(onHitNexusVFX, other.transform.position, Quaternion.identity);
 
         if (RemainingLifes() == 0)
         {
@@ -40,7 +44,11 @@ public class LifeManager : MonoBehaviour
             audioSource.PlayOneShot(gameOverSound);
             gameOverPanel.SetActive(true);
             PauseGame();
-        } 
+        }
+        else
+        {
+            audioSource.PlayOneShot(onHitNexusSFX);
+        }
     }
 
     void PauseGame()

@@ -47,8 +47,8 @@ public class Bullet : MonoBehaviour
 
     void HitTarget()
     {
-        GameObject instantiatedImpactEffect = Instantiate(impactEffect, transform.position, transform.rotation);
-        Destroy(instantiatedImpactEffect, 1f);
+        //GameObject instantiatedImpactEffect = Instantiate(impactEffect, transform.position, transform.rotation);
+        //Destroy(instantiatedImpactEffect, 1f);
 
         if (explosionRadius > 0f)
             Explode();
@@ -70,11 +70,5 @@ public class Bullet : MonoBehaviour
     {
         var enemy = _enemy.gameObject.GetComponent<Enemy>();
         enemy.TakeDamage(damage, isPoisonBullet);
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawSphere(transform.position, explosionRadius);
     }
 }

@@ -14,6 +14,7 @@ public class TowerShoot : MonoBehaviour
     [SerializeField] Transform firePoint;
     [SerializeField] float fireRate = 1f;
     [SerializeField] int bulletDamage = 50;
+    [SerializeField] AudioClip shootSFX;
     float fireCountDown = 0f;
 
     [Header("Laser")]
@@ -21,7 +22,7 @@ public class TowerShoot : MonoBehaviour
     [SerializeField] LineRenderer lineRenderer;
     [SerializeField] int damageOverTime = 25;
     [SerializeField] float slowAmount = .3f;
-
+    [SerializeField] AudioClip laserSFX;
 
     public GameObject currentBullet;
 
@@ -30,6 +31,8 @@ public class TowerShoot : MonoBehaviour
     string tagTamashiDamage = "TamashiDamage";
     string tagTamashiPoison = "TamashiPoison";
 
+
+    AudioSource audioSource;
     void Start()
     {
         towerIA = GetComponent<TowerIA>();
@@ -42,6 +45,8 @@ public class TowerShoot : MonoBehaviour
             currentBullet = poisonBulletPrefab;
         else
             currentBullet = bulletPrefab;
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -51,9 +56,16 @@ public class TowerShoot : MonoBehaviour
         if (currentTarget == null)
         {
             if (lineRenderer != null)
+            {
                 lineRenderer.enabled = false;
+
+                if (useLaserShot)
+                    audioSource.Stop();
+            }
             return;
         }
+        if (!audioSource.isPlaying && useLaserShot)
+            audioSource.Play();
 
         if (useLaserShot)
             Laser();
@@ -77,6 +89,7 @@ public class TowerShoot : MonoBehaviour
         Bullet bullet = bulletInstance.GetComponent<Bullet>();
         if (bullet != null)
         {
+            audioSource.PlayOneShot(shootSFX);
             bullet.SetTarget(currentTarget);
             bullet.SetDamage(bulletDamage);
         }

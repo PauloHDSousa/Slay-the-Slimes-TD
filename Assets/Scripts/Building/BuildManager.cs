@@ -49,6 +49,8 @@ public class BuildManager : MonoBehaviour
     int upgradePrice;
     TowerShoot currentTowerShot;
     TowerIA currentTowerIA;
+    Image currentWeaponCanvas;
+    Color deafultWeaponCanvasColor;
     //Curency
     CurrencyManager currencyManager;
 
@@ -62,7 +64,7 @@ public class BuildManager : MonoBehaviour
     public bool damageTamashiCreated = false;
     public bool poisonTamashiCreated = false;
 
-    bool hoveringUI  = false;
+    bool hoveringUI = false;
 
     private void Awake()
     {
@@ -95,7 +97,7 @@ public class BuildManager : MonoBehaviour
 
     private void Build(InputAction.CallbackContext ctx)
     {
-        if(hoveringUI)
+        if (hoveringUI)
             return;
 
         //Can only build in buildable area, this is important to deny build 2 towers at the same place
@@ -146,13 +148,16 @@ public class BuildManager : MonoBehaviour
             if (weaponInfo.GetIsPoisonTamashi())
             {
                 audioSource.PlayOneShot(poisonBuildEndSFX);
+                ResetCurrentCanvasWeaponColor();
             }
             else if (weaponInfo.GetIsDamageTamashi())
             {
                 audioSource.PlayOneShot(damageBuildEndSFX);
+                ResetCurrentCanvasWeaponColor();
             }
             else
                 audioSource.PlayOneShot(buildEndSFX);
+
 
             Instantiate(weaponInfo.GetParticlesVFX(), hit.collider.transform.position, Quaternion.identity);
         }
@@ -172,16 +177,17 @@ public class BuildManager : MonoBehaviour
 
             currentTowerShot = hit.collider.GetComponentInChildren<TowerShoot>();
             upgradeCurrentWeapon = currentTowerIA.gameObject;
-            
+
             upgradeButton.SetActive(true);
-          
+
             if (currentTowerIA.CurrentWeaponLevel == 3)
             {
                 upgradeButton.SetActive(false);
                 upgradeOrSellWeaponLevel.text = $"Max Level";
                 upgradeOrSellWeaponLevel.fontSize = 32;
             }
-            else { 
+            else
+            {
                 upgradeOrSellWeaponLevel.text = $"Level {currentTowerIA.CurrentWeaponLevel}";
                 upgradeOrSellWeaponLevel.fontSize = 22;
             }
@@ -206,10 +212,9 @@ public class BuildManager : MonoBehaviour
     public void SetWeapon(GameObject _weapon)
     {
         if (currentWeapon == null || currentWeapon != _weapon)
-        {
             currentWeapon = _weapon;
-            audioSource.PlayOneShot(buildStartSFX);
-        }
+
+        audioSource.PlayOneShot(buildStartSFX);
     }
 
     public void SetWeaponPrice(int price)
@@ -224,6 +229,24 @@ public class BuildManager : MonoBehaviour
     {
         if (previewWeapon == null || previewWeapon != _previewWeapon)
             previewWeapon = _previewWeapon;
+    }
+
+    public void SetCurrentCanvasWeapon(Image canvasImage)
+    {
+        if (currentWeaponCanvas != null)
+            ResetCurrentCanvasWeaponColor();
+
+        currentWeaponCanvas = canvasImage;
+        deafultWeaponCanvasColor = currentWeaponCanvas.color;
+        var color = currentWeaponCanvas.color;
+        color.a = 255;
+        currentWeaponCanvas.color = color;
+    }
+
+    void ResetCurrentCanvasWeaponColor()
+    {
+        if (currentWeaponCanvas != null)
+            currentWeaponCanvas.color = deafultWeaponCanvasColor;
     }
 
     public GameObject GetWeaponPrefabPreview()

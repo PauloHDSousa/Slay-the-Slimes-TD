@@ -246,7 +246,7 @@ MonoBehaviour:
   shootSFX: {fileID: 0}
   useLaserShot: 1
   lineRenderer: {fileID: 750603497}
-  damageOverTime: 35
+  damageOverTime: 25
   slowAmount: 0.5
   laserSFX: {fileID: 8300000, guid: 310869ef991384c408db215448727f95, type: 3}
   currentBullet: {fileID: 0}

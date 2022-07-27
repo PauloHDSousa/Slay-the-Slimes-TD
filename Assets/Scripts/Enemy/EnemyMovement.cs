@@ -1,10 +1,11 @@
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
-{ 
+{
     Transform targetPoint;
     int currentPoint = 0;
 
+    [SerializeField] bool isMainMenu = false;
     Enemy enemy;
 
     void Start()
@@ -18,7 +19,7 @@ public class EnemyMovement : MonoBehaviour
         Vector3 dir = targetPoint.position - transform.position;
         dir.y = 0;
         transform.Translate(dir.normalized * enemy.speed * Time.deltaTime, Space.World);
-        
+
         //Look
         Quaternion lookRotation = Quaternion.LookRotation(dir);
         Vector3 rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * 10f).eulerAngles;
@@ -27,7 +28,7 @@ public class EnemyMovement : MonoBehaviour
         if (Vector3.Distance(transform.position, targetPoint.position) <= 0.2f)
             GoToNextPoint();
 
-        enemy.speed = enemy.enemySpeed; 
+        enemy.speed = enemy.enemySpeed;
     }
 
     void GoToNextPoint()
@@ -35,8 +36,15 @@ public class EnemyMovement : MonoBehaviour
         currentPoint++;
         if (currentPoint >= WayPoints.wayPoints.Length)
         {
-            Destroy(this.gameObject);
-            return;
+            if (!isMainMenu)
+            {
+                Destroy(this.gameObject);
+                return;
+            }
+            else
+            {
+                currentPoint = 0;
+            }
         }
 
         targetPoint = WayPoints.wayPoints[currentPoint];

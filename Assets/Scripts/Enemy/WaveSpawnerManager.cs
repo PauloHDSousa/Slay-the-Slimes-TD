@@ -51,6 +51,11 @@ public class WaveSpawnerManager : MonoBehaviour
     LifeManager lifeManager;
     AudioSource audioSource;
 
+    public int GetCurrentMap()
+    {
+        return currentMap;
+    }
+
     private void Start()
     {
         currencyManager = FindObjectOfType<CurrencyManager>();

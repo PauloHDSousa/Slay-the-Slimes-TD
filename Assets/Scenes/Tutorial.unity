@@ -547,6 +547,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 321541320}
+        m_TargetAssemblyTypeName: BuildManager, Assembly-CSharp
+        m_MethodName: SetCurrentCanvasWeapon
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 626874499}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &90094353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -645,6 +657,18 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 321541320}
+          m_TargetAssemblyTypeName: BuildManager, Assembly-CSharp
+          m_MethodName: SetCurrentCanvasWeapon
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 626874499}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -1186,6 +1210,18 @@ MonoBehaviour:
           m_StringArgument: damagetamashi
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 321541320}
+        m_TargetAssemblyTypeName: BuildManager, Assembly-CSharp
+        m_MethodName: SetCurrentCanvasWeapon
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1182208360}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &249779523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1299,6 +1335,18 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 321541320}
+          m_TargetAssemblyTypeName: BuildManager, Assembly-CSharp
+          m_MethodName: SetCurrentCanvasWeapon
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 1182208360}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -1877,6 +1925,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 321541320}
+        m_TargetAssemblyTypeName: BuildManager, Assembly-CSharp
+        m_MethodName: SetCurrentCanvasWeapon
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1583264157}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &349904500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1990,6 +2050,18 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 321541320}
+          m_TargetAssemblyTypeName: BuildManager, Assembly-CSharp
+          m_MethodName: SetCurrentCanvasWeapon
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 1583264157}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -4244,6 +4316,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 321541320}
+        m_TargetAssemblyTypeName: BuildManager, Assembly-CSharp
+        m_MethodName: SetCurrentCanvasWeapon
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 852184773}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &944600795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4357,6 +4441,18 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 321541320}
+          m_TargetAssemblyTypeName: BuildManager, Assembly-CSharp
+          m_MethodName: SetCurrentCanvasWeapon
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 852184773}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -7108,6 +7204,7 @@ MonoBehaviour:
   - {fileID: 913406305999723180, guid: 1d4665744f1e20943a60087cecde62a1, type: 3}
   boss_enemyPrefabs: {fileID: 913406305999723180, guid: 1046bd6eb6f5d744cb7d1d3b6099b2b6, type: 3}
   spawPoint: {fileID: 1093384165}
+  second_spawPoint: {fileID: 0}
   timeBetweenWaves: 3.5
   timeBetweenEnemies: 0.8
   tmpWaveCountDownTimer: {fileID: 268837069}
@@ -8730,6 +8827,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 321541320}
+        m_TargetAssemblyTypeName: BuildManager, Assembly-CSharp
+        m_MethodName: SetCurrentCanvasWeapon
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 531211789}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1814401811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8843,6 +8952,18 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 321541320}
+          m_TargetAssemblyTypeName: BuildManager, Assembly-CSharp
+          m_MethodName: SetCurrentCanvasWeapon
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 531211789}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 

@@ -3284,6 +3284,14 @@ PrefabInstance:
       propertyPath: onHoverFontSize
       value: 33
       objectReference: {fileID: 0}
+    - target: {fileID: 2922615739041058001, guid: 0d6842bef4de9554abec191bb2b224ac, type: 3}
+      propertyPath: Priority
+      value: 220
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922615739041058001, guid: 0d6842bef4de9554abec191bb2b224ac, type: 3}
+      propertyPath: m_Volume
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d6842bef4de9554abec191bb2b224ac, type: 3}

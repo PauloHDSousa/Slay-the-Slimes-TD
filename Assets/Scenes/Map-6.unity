@@ -11886,7 +11886,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.9716981, g: 0.9716981, b: 0.875445, a: 1}
+  m_Color: {r: 0.8679245, g: 0.8679245, b: 0.83107865, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -12901,7 +12901,7 @@ PrefabInstance:
       objectReference: {fileID: 1257385798}
     - target: {fileID: 8973482629749442299, guid: 77cfb3e99ad3dae45a147f4e0b14ed32, type: 3}
       propertyPath: maxWaves
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8973482629749442299, guid: 77cfb3e99ad3dae45a147f4e0b14ed32, type: 3}
       propertyPath: spawPoint

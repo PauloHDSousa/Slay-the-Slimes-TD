@@ -594,6 +594,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 321541320}
+        m_TargetAssemblyTypeName: BuildManager, Assembly-CSharp
+        m_MethodName: SetCurrentCanvasWeapon
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 626874499}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &90094353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -680,6 +692,18 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 7030391406175392972, guid: 89862b4b563e93c419399844d42b8478, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 321541320}
+          m_TargetAssemblyTypeName: BuildManager, Assembly-CSharp
+          m_MethodName: SetCurrentCanvasWeapon
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 626874499}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -1293,6 +1317,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 8066366452862461806, guid: 84824c754da4c174cb7ea59f5d6bf5ef, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 321541320}
+        m_TargetAssemblyTypeName: BuildManager, Assembly-CSharp
+        m_MethodName: SetCurrentCanvasWeapon
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1182208360}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1990,6 +2026,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 321541320}
+        m_TargetAssemblyTypeName: BuildManager, Assembly-CSharp
+        m_MethodName: SetCurrentCanvasWeapon
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1583264157}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &349904500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2091,6 +2139,18 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 5055703350942485405, guid: 42447eb0ebf8e204a91f7f7c9560031f, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 321541320}
+          m_TargetAssemblyTypeName: BuildManager, Assembly-CSharp
+          m_MethodName: SetCurrentCanvasWeapon
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 1583264157}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -3897,6 +3957,7 @@ GameObject:
   - component: {fileID: 931269140}
   - component: {fileID: 931269143}
   - component: {fileID: 931269144}
+  - component: {fileID: 931269145}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4019,6 +4080,18 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   m_MaxRayIntersections: 0
+--- !u!114 &931269145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 931269139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 136906483e24b8c43bb2eac821d6ad3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &944600792
 GameObject:
   m_ObjectHideFlags: 0
@@ -4142,6 +4215,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 321541320}
+        m_TargetAssemblyTypeName: BuildManager, Assembly-CSharp
+        m_MethodName: SetCurrentCanvasWeapon
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 852184773}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &944600795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4243,6 +4328,18 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 3802177722232426485, guid: 80005bad2390a1443a31f58152e78da5, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 321541320}
+          m_TargetAssemblyTypeName: BuildManager, Assembly-CSharp
+          m_MethodName: SetCurrentCanvasWeapon
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 852184773}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -4961,7 +5058,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1029394087}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.88, y: 0.14, z: 5.38}
+  m_LocalPosition: {x: 5.91, y: 0.14, z: 5.69}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6703,7 +6800,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1404499924}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.96, y: 0.14, z: -0.577}
+  m_LocalPosition: {x: 5.96, y: 0.14, z: -0.82}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8771,6 +8868,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 321541320}
+        m_TargetAssemblyTypeName: BuildManager, Assembly-CSharp
+        m_MethodName: SetCurrentCanvasWeapon
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 531211789}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1814401811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8872,6 +8981,18 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 8066366452862461806, guid: 84824c754da4c174cb7ea59f5d6bf5ef, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 321541320}
+          m_TargetAssemblyTypeName: BuildManager, Assembly-CSharp
+          m_MethodName: SetCurrentCanvasWeapon
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 531211789}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -9176,7 +9297,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1863848394}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.8800001, y: 0.14, z: 5.88}
+  m_LocalPosition: {x: 2.13, y: 0.14, z: 6.24}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10481,7 +10602,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2082734014}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 0, y: 13.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

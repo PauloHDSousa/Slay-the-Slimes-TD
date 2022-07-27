@@ -466,8 +466,8 @@ MonoBehaviour:
   damageEffect: {fileID: 8277295881374274102, guid: 2b81b32534b18d842b3edb7c575a8777, type: 3}
   Body: {fileID: 855710797529617817}
   healthBar: {fileID: 995911251}
-  enemyHealth: 115
-  enemySpeed: 3.5
+  enemyHealth: 170
+  enemySpeed: 2.5
   goldWorth: 50
   poisonDamage: 15
   enemyDeathSFX: {fileID: 8300000, guid: 4314b8c8bab47a74b995cda610d698ba, type: 3}

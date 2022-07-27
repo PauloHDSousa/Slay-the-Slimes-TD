@@ -35,6 +35,7 @@ public class LifeManager : MonoBehaviour
         lifes.Remove(currentLife);
         Destroy(other.gameObject);
 
+        CameraShake.Shake(.3f, .15f);
 
         Instantiate(onHitNexusVFX, other.transform.position, Quaternion.identity);
 

@@ -18,7 +18,8 @@ public class GameManager : MonoBehaviour
 
         fader.gameObject.SetActive(true);
         LeanTween.scale(fader, new Vector3(1, 1, 1), 0);
-        LeanTween.scale(fader, Vector3.zero, 0.5f).setEase(LeanTweenType.easeInOutQuad).setOnComplete(() => {
+        LeanTween.scale(fader, Vector3.zero, 0.5f).setEase(LeanTweenType.easeInOutQuad).setOnComplete(() =>
+        {
             fader.gameObject.SetActive(false);
         });
     }
@@ -47,9 +48,19 @@ public class GameManager : MonoBehaviour
 
     #region Scenes
 
-    public void LoadMapSelector()
+    public void LoadMaps()
     {
         LoadScene("MapSelector");
+    }
+
+    public void LoadMapSelector()
+    {
+        WaveSpawnerManager waveManager = FindObjectOfType<WaveSpawnerManager>();
+        int currentMap = waveManager.GetCurrentMap();
+        if (currentMap > 0)
+            LoadScene("Map-" + (currentMap + 1));
+        else
+            LoadMap1();
     }
     public void LoadMenu()
     {
@@ -119,14 +130,15 @@ public class GameManager : MonoBehaviour
 
     void LoadScene(string _scene)
     {
-       
+
         scene = _scene;
         audioSource.PlayOneShot(OnSceneLoad);
 
         fader.gameObject.SetActive(true);
         LeanTween.scale(fader, Vector3.zero, 0f);
         Time.timeScale = 1;
-        LeanTween.scale(fader, new Vector3(1, 1, 1), 0.5f).setEase(LeanTweenType.easeInOutQuad).setOnComplete(() => {
+        LeanTween.scale(fader, new Vector3(1, 1, 1), 0.5f).setEase(LeanTweenType.easeInOutQuad).setOnComplete(() =>
+        {
             SceneManager.LoadScene(scene);
         });
     }

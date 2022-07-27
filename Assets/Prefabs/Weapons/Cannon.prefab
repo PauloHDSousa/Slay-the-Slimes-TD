@@ -158,7 +158,7 @@ MonoBehaviour:
   poisonBulletPrefab: {fileID: 7174378741041106835, guid: 348b8a8e38efd6643a7ee45c2ca2cd06, type: 3}
   firePoint: {fileID: 4476537945699756966}
   fireRate: 0.4
-  bulletDamage: 30
+  bulletDamage: 20
   shootSFX: {fileID: 8300000, guid: f8e4a00a6aec3ed4ea826abaebc6b56b, type: 3}
   useLaserShot: 0
   lineRenderer: {fileID: 0}

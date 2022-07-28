@@ -3,7 +3,7 @@
 <p>You can Summon powerfull ninjas to improve your towers in your maps</p>
 <p>You can play it by <a href="https://paulohdsousa.itch.io/slay-the-slimes" target="_blank">clicking here</a> and fell free to leave feedbacks</p>
 <div align="center" valign="top">
-  <img src="https://img.itch.zone/aW1nLzk2MzQ3MzUucG5n/315x250%23c/mPRJS%2F.png"/>
+  <img src="https://img.itch.zone/aW1nLzk2MzQ3MzUucG5n/315x250%23c/mPRJS%2F.png"/><br><br>
   <img src="https://img.itch.zone/aW1hZ2UvMTYzNTk5Ny85NjM0ODQyLnBuZw==/250x600/SGD6Pv.png"/>
   <img src="https://img.itch.zone/aW1hZ2UvMTYzNTk5Ny85NjM0Nzc0LnBuZw==/250x600/RusLhE.png"/>
   <img src="https://img.itch.zone/aW1hZ2UvMTYzNTk5Ny85NjM0NzczLnBuZw==/250x600/9oOVDC.png"/> 

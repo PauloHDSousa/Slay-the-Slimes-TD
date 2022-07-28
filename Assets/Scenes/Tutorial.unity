@@ -4059,6 +4059,7 @@ GameObject:
   - component: {fileID: 931269140}
   - component: {fileID: 931269143}
   - component: {fileID: 931269144}
+  - component: {fileID: 931269145}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4181,6 +4182,18 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   m_MaxRayIntersections: 0
+--- !u!114 &931269145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 931269139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 136906483e24b8c43bb2eac821d6ad3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &944600792
 GameObject:
   m_ObjectHideFlags: 0
@@ -7214,7 +7227,7 @@ MonoBehaviour:
   stars_3: {fileID: 239834064}
   stars_2: {fileID: 1505628287}
   stars_1: {fileID: 15053822}
-  successSFX: {fileID: 0}
+  successSFX: {fileID: 8300000, guid: 00eda4eef8d7b4b40aa8067b4b5028c2, type: 3}
   maxWaves: 6
   currentMap: 0
   allWavesSumoned: 0

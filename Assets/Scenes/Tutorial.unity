@@ -11798,6 +11798,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 437297167}
+    - target: {fileID: 1103993682715466553, guid: f2bc043f080c4504da44cea88e4cd32c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadMapSelector
+      objectReference: {fileID: 0}
     - target: {fileID: 1103993682715466558, guid: f2bc043f080c4504da44cea88e4cd32c, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
